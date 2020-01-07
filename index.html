@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+    <!--I, Dhairya Soni, student number 000797437, certify that all code submitted is
+         my own work; that I have not copied it from any other source.  I also certify that 
+         I have not allowed my work to be copied by others.-->
+    <!--this file is giving all the elements and get thr name form the user 
+    even i have set the background of the game in this html file
+    it also have the background image. First of all it will show the form to get the name of the players and then it will show the game and two buttons 
+    one is to reset the game and second is to get the helpmin text.if one player win the game so game will be disappear and will show the message with the name 
+    of the player which user had been entered-->
+    <head>
+        <!--I liked the css file at here to give the design-->
+        <link href = "CSS/Assignment02CSS.css" rel="stylesheet">
+        <!--this is to set the title of the webpage-->
+        <style>
+          .block1{
+    background-color:red;
+    width: 100px;
+    height:100px;
+    margin: 1px 2px;
+    float:left;
+}
+#help{
+    position: absolute;
+    top: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    right:0px;
+    font-weight: normal;
+    font-size: 20px;
+}
+            .block2{
+                background-color:red;
+                width: 100px;
+                height:100px;
+                margin: 1px 2px;
+                float:left;
+            }
+            .block3{
+                background-color:red;
+                width: 100px;
+                height:100px;
+                margin: 1px 2px;
+                float:left;
+            }
+            #game1{
+                background-color:black ;
+                width:313px;
+                margin-left: 20%;
+                position: absolute;
+            }
+            #won{
+                position: absolute;
+            }
+            body{
+                font-size: 30px;
+                font-weight: bold;
+            }
+            #TTT{
+                position: absolute;
+                height:100%;
+                width:100%;
+                filter:blur(5px);
+            }
+            #whole{
+                position: absolute;
+            }
+            #form{
+                margin-top: 25%;
+            }
+            #reset{
+                position: absolute;                
+            }
+        </style>
+        <title>
+            This is Dhairya's game.
+        </title>
+    </head>
+    <body>
+        <image src = "Image/TTT.jfif" id = TTT>
+            <div id = whole>
+        <div id = form>
+            <form>
+                <label>First Player Name: </label><input type = "text" id = "name1" value = "Player1" required><br>
+                <label>Second Player Name: </label><input type="text" id="name2" value = "Player2" required><br>
+                <input type="button" id = "submit" value = "Submit">
+            </form>
+        </div>
+        <!--this is game here.-->
+        <div id = game>
+            <div id = game1>
+            <div id = nxt>
+            <div class = block1 id = '1'></div>
+            <div class = block1 id = '2'></div>
+            <div class = block1 id = '3'></div>
+            </div><br>
+            <div id = nxt>
+            <div class = block2 id = '4'></div>
+            <div class = block2 id = '5'></div>
+            <div class = block2 id = '6'></div>
+            </div><br>
+            <div id = nxt>
+            <div class = block3 id = '7'></div>
+            <div class = block3 id = '8'></div>
+            <div class = block3 id = '9'></div>
+            </div>
+            </div>
+            <form>
+                <input type = "button" id = "button" value = "Reset" onclick="window.location.reload();"><br>
+                <input type = "button" value = "Help" id = "helpButton">
+            </form>
+        </div>
+        
+        <p id = won></p>
+        <form id = reset>
+            <input type = "reset" value = "Next Round" id = "reset" onclick="javascript:history.go(0)">
+        </form>
+        </div>
+        <div><!--this is the part of the help-->
+            <p  id = help>This is the game called tic tac toe.
+            In this game you can draw the shape of "O" or "X" by chicking into that red square.
+            You can not change the sign in the square if you already filled it by clicking before.
+            If the 3 boxes hve same sign and if those 3 boxes are in the same line so that player will win.
+            If there is no line where three same signs are same so no one will win and you should click <b>"Reset"</b> button.</p>
+        </div>
+        
+        <script>
+let sub = document.getElementById('submit');
+let vis = document.getElementById('game');
+let form = document.getElementById('form');
+let reset = document.getElementById('reset');
+let helptext = document.getElementById('help');
+let helpButton = document.getElementById('helpButton');
+helpButton.addEventListener('click' , visiblehelp);
+helptext.style.visibility = "hidden";
+reset.style.visibility = "hidden";
+vis.style.visibility = "hidden";
+sub.addEventListener("click" , games);
+function visiblehelp(){
+    helptext.style.visibility = "visible";
+}
+function games(){
+    
+    form.style.visibility = "hidden";
+let gm = document.getElementById('game');
+gm.style.visibility = 'visible';
+let b = {
+b1 : document.getElementById('1'),
+b2 : document.getElementById('2'),
+b3 : document.getElementById('3'),
+b4 : document.getElementById('4'),
+b5 : document.getElementById('5'),
+b6 : document.getElementById('6'),
+b7 : document.getElementById('7'),
+b8 : document.getElementById('8'),
+b9 : document.getElementById('9'),
+}
+let number = 1;
+function clear(){
+    let clear1 = document.getElementById('game');
+    clear1.style.visibility = "hidden";
+}
+function won(){
+    if(number % 2 == 0){
+        let name1 = document.getElementById('name1').value;
+    let won1 = document.getElementById('won');
+    won1.innerText =name1+" won";
+    reset.style.visibility = 'visible';
+    helptext.style.visibility = "hidden";
+    }else if(number%2==1){
+        
+        let name2 = document.getElementById('name2').value;
+    let won1 = document.getElementById('won');
+    won1.innerText = name2+" won";
+    reset.style.visibility = 'visible';
+    helptext.style.visibility = "hidden";
+    }
+}
+function B1(){
+    if(b.b1.innerText == ""){
+    if(number%2 === 0){
+        b.b1.innerHTML = 'X';
+    }else if(number%2 === 1){
+        b.b1.innerHTML = 'O';
+    }
+    number ++;
+    b.b1.style.textAlign = 'center';
+    b.b1.style.fontSize = "100px";
+    }
+    else{
+        alert("That possision is already filled");
+    } 
+    if(b.b1.innerText === b.b2.innerText && b.b2.innerText===b.b3.innerText && b.b3.innerText === b.b1.innerText){
+        clear();
+        won();
+    }else if(b.b1.innerText === b.b5.innerText && b.b5.innerText===b.b9.innerText && b.b9.innerText === b.b1.innerText){
+        clear();
+        won();
+    }else if(b.b1.innerText === b.b4.innerText && b.b4.innerText===b.b7.innerText && b.b7.innerText === b.b1.innerText){
+        clear();
+        won();
+    }
+}
+function B2(){
+    if(b.b2.innerText == ""){
+    if(number%2 === 0){
+        b.b2.innerHTML = 'X';
+    }else if(number%2 === 1){
+        b.b2.innerHTML = 'O';
+    }
+    number ++;
+    b.b2.style.textAlign = 'center';
+    b.b2.style.fontSize = "100px";
+}
+else {
+    alert("This possision is already filled");
+}
+if(b.b2.innerText === b.b5.innerText && b.b5.innerText===b.b8.innerText && b.b8.innerText === b.b2.innerText){
+    clear();
+    won();
+}
+}
+function B3(){
+    if(b.b3.innerText == ""){
+    if(number%2 === 0){
+    b.b3.innerHTML = 'X';
+    }else if(number%2 === 1){
+    b.b3.innerHTML = 'O';
+    }
+    number ++;
+    b.b3.style.textAlign = 'center';
+    b.b3.style.fontSize = "100px";
+}
+else{
+    alert("This possision is already filled");
+}
+if(b.b3.innerText === b.b5.innerText && b.b5.innerText===b.b7.innerText && b.b7.innerText === b.b3.innerText){
+    clear();
+    won();
+}else if(b.b3.innerText === b.b2.innerText && b.b2.innerText===b.b1.innerText && b.b1.innerText === b.b3.innerText){
+    clear();
+    won();
+}else if(b.b3.innerText === b.b6.innerText && b.b6.innerText===b.b9.innerText && b.b9.innerText === b.b3.innerText){
+    clear();
+    won();
+}
+}
+function B4(){
+    if(b.b4.innerText == ""){
+    if(number%2 === 0){
+    b.b4.innerHTML = 'X';
+    }else if(number%2 === 1){
+    b.b4.innerHTML = 'O';
+    }
+    number ++;
+    b.b4.style.textAlign = 'center';
+    b.b4.style.fontSize = "100px";
+}else{
+    alert("This possision is already filled");
+}if(b.b4.innerText === b.b1.innerText && b.b1.innerText===b.b7.innerText && b.b7.innerText === b.b4.innerText){
+    clear();
+    won();
+}else if(b.b4.innerText === b.b5.innerText && b.b5.innerText===b.b6.innerText && b.b6.innerText === b.b4.innerText){
+    clear();
+    won();
+}
+}
+function B5(){
+    if(b.b5.innerText == ""){
+    if(number%2 === 0){
+    b.b5.innerHTML = 'X';
+    }else if(number%2 === 1){
+    b.b5.innerHTML = 'O';
+    }
+    number ++;
+    b.b5.style.textAlign = 'center';
+    b.b5.style.fontSize = "100px";
+}else{
+    alert("This possision is already filled");
+}if(b.b5.innerText === b.b1.innerText && b.b1.innerText===b.b9.innerText && b.b9.innerText === b.b5.innerText){
+    clear();
+    won();
+}else if(b.b5.innerText === b.b4.innerText && b.b4.innerText===b.b6.innerText && b.b6.innerText === b.b5.innerText){
+    clear();
+    won();
+}else if(b.b5.innerText === b.b3.innerText && b.b3.innerText===b.b7.innerText && b.b7.innerText === b.b5.innerText){
+    clear();
+    won();
+}
+}
+function B6(){
+    if(b.b6.innerText == ""){
+    if(number%2 === 0){
+    b.b6.innerHTML = 'X';
+    }else if(number%2 === 1){
+    b.b6.innerHTML = 'O';
+    }
+    number ++;
+    b.b6.style.textAlign = 'center';
+    b.b6.style.fontSize = "100px";
+}else{
+    alert("This possision is already filled");
+}if(b.b6.innerText === b.b3.innerText && b.b3.innerText===b.b9.innerText && b.b9.innerText === b.b6.innerText){
+    clear();
+    won();
+}else if(b.b6.innerText === b.b5.innerText && b.b5.innerText===b.b4.innerText && b.b4.innerText === b.b6.innerText){
+    clear();
+    won();
+}
+}
+function B7(){
+    if(b.b7.innerText == ""){
+    if(number%2 === 0){
+    b.b7.innerHTML = 'X';
+    }else if(number%2 === 1){
+    b.b7.innerHTML = 'O';
+    }
+    number ++;
+    b.b7.style.textAlign = 'center';
+    b.b7.style.fontSize = "100px";
+}else{
+    alert("This possision is already filled");
+}
+if(b.b7.innerText ===b.b4.innerText && b.b4.innerText===b.b1.innerText && b.b1.innerText === b.b7.innerText){
+    clear();
+    won();
+}else if(b.b7.innerText === b.b5.innerText && b.b5.innerText===b.b3.innerText && b.b3.innerText === b.b7.innerText){
+    clear();
+    won();
+}else if(b.b7.innerText === b.b8.innerText && b.b8.innerText===b.b9.innerText && b.b9.innerText === b.b7.innerText){
+    clear();
+    won();
+}
+}
+function B8(){
+    if(b.b8.innerText == ""){
+    if(number%2 === 0){
+    b.b8.innerHTML = 'X';
+    }else if(number%2 === 1){
+    b.b8.innerHTML = 'O';
+    }
+    number ++;
+    b.b8.style.textAlign = 'center';
+    b.b8.style.fontSize = "100px";
+}else{
+    alert("This possision is already filled");
+}
+if(b.b8.innerText === b.b9.innerText && b.b9.innerText===b.b7.innerText && b.b7.innerText === b.b8.innerText){
+    clear();
+    won();
+}else if(b.b8.innerText === b.b5.innerText && b.b5.innerText===b.b2.innerText && b.b2.innerText === b.b8.innerText){
+    clear();
+    won();
+}
+}
+function B9(){
+    if(b.b9.innerText == ""){
+    if(number%2 === 0){
+    b.b9.innerHTML = 'X';
+    }else if(number%2 === 1){
+    b.b9.innerHTML = 'O';
+    }
+number ++;
+    b.b9.style.textAlign = 'center';
+    b.b9.style.fontSize = "100px";
+}else{
+    alert("This possision is already filled");
+}if(b.b9.innerText === b.b5.innerText && b.b5.innerText===b.b1.innerText && b.b1.innerText === b.b9.innerText){
+    clear();
+    won();
+}else if(b.b9.innerText === b.b8.innerText && b.b8.innerText===b.b7.innerText && b.b7.innerText === b.b9.innerText){
+    clear();
+    won();
+}else if(b.b9.innerText === b.b6.innerText && b.b6.innerText===b.b3.innerText && b.b3.innerText === b.b9.innerText){
+    clear();
+    won();
+}
+}
+b.b1.addEventListener("click", B1);
+b.b2.addEventListener("click", B2);
+b.b3.addEventListener("click", B3);
+b.b4.addEventListener("click", B4);
+b.b5.addEventListener("click", B5);
+b.b6.addEventListener("click", B6);
+b.b7.addEventListener("click", B7);
+b.b8.addEventListener("click", B8);
+b.b9.addEventListener("click", B9);
+}
+
+        </script>
+    </body>
+</html>
