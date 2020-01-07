@@ -141,7 +141,9 @@
             helptext.style.visibility = "visible";
         }
         function games(){
-
+        if(document.getElementById('name1').value == "" ||document.getElementById('name2').value == ""){
+            alert("Enter the name");
+        }else{
             form.style.visibility = "hidden";
         let gm = document.getElementById('game');
         gm.style.visibility = 'visible';
@@ -387,6 +389,7 @@
         b.b7.addEventListener("click", B7);
         b.b8.addEventListener("click", B8);
         b.b9.addEventListener("click", B9);
+        }
         }
 </script>
     </body>
