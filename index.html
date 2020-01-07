@@ -125,329 +125,269 @@
             If this thing does not happens then no one will win and you should click <b>"Start Again"</b> button.</p>
         </div>
         
-        <script>
-let sub = document.getElementById('submit');
-let vis = document.getElementById('game');
-let form = document.getElementById('form');
-let reset = document.getElementById('reset');
-let helptext = document.getElementById('help');
-let helpButton = document.getElementById('helpButton');
-helpButton.addEventListener('click' , visiblehelp);
-helptext.style.visibility = "hidden";
-reset.style.visibility = "hidden";
-vis.style.visibility = "hidden";
-sub.addEventListener("click" , games);
-function visiblehelp(){
-    helptext.style.visibility = "visible";
-}
-function games(){
-    
-    form.style.visibility = "hidden";
-let gm = document.getElementById('game');
-gm.style.visibility = 'visible';
-let b = {
-b1 : document.getElementById('1'),
-b2 : document.getElementById('2'),
-b3 : document.getElementById('3'),
-b4 : document.getElementById('4'),
-b5 : document.getElementById('5'),
-b6 : document.getElementById('6'),
-b7 : document.getElementById('7'),
-b8 : document.getElementById('8'),
-b9 : document.getElementById('9'),
-}
-let number = 1;
-function clear(){
-    let clear1 = document.getElementById('game');
-    clear1.style.visibility = "hidden";
-}
-function won(){
-    if(number % 2 == 0){
-        let name1 = document.getElementById('name1').value;
-    let won1 = document.getElementById('won');
-    won1.innerText =name1+" won";
-    reset.style.visibility = 'visible';
-    helptext.style.visibility = "hidden";
-    }else if(number%2==1){
-        
-        let name2 = document.getElementById('name2').value;
-    let won1 = document.getElementById('won');
-    won1.innerText = name2+" won";
-    reset.style.visibility = 'visible';
-    helptext.style.visibility = "hidden";
-    }
-}
-function B1(){
-    if(b.b1.innerText == ""){
-    if(number%2 === 0){
-        b.b1.innerHTML = 'X';
-    }else if(number%2 === 1){
-        b.b1.innerHTML = 'O';
-    }
-    number ++;
-    b.b1.style.textAlign = 'center';
-    b.b1.style.fontSize = "100px";
-    }
-    else{
-        alert("That possision is already filled");
-    } 
-    if(b.b1.innerText === b.b2.innerText && b.b2.innerText===b.b3.innerText && b.b3.innerText === b.b1.innerText){
-        b.b1.style.backgroundColor = yellow;
-        b.b2.style.backgroundColor = yellow;
-        b.b3.style.backgroundColor = yellow;
-        clear();
-        won();
-    }else if(b.b1.innerText === b.b5.innerText && b.b5.innerText===b.b9.innerText && b.b9.innerText === b.b1.innerText){
-        b.b1.style.backgroundColor = yellow;
-        b.b5.style.backgroundColor = yellow;
-        b.b9.style.backgroundColor = yellow;
-        clear();
-        won();
-    }else if(b.b1.innerText === b.b4.innerText && b.b4.innerText===b.b7.innerText && b.b7.innerText === b.b1.innerText){
-        b.b1.style.backgroundColor = yellow;
-        b.b4.style.backgroundColor = yellow;
-        b.b7.style.backgroundColor = yellow;
-        clear();
-        won();
-    }
-}
-function B2(){
-    if(b.b2.innerText == ""){
-    if(number%2 === 0){
-        b.b2.innerHTML = 'X';
-    }else if(number%2 === 1){
-        b.b2.innerHTML = 'O';
-    }
-    number ++;
-    b.b2.style.textAlign = 'center';
-    b.b2.style.fontSize = "100px";
-}
-else {
-    alert("This possision is already filled");
-}
-if(b.b2.innerText === b.b5.innerText && b.b5.innerText===b.b8.innerText && b.b8.innerText === b.b2.innerText){
-    b.b2.style.backgroundColor = yellow;
-    b.b8.style.backgroundColor = yellow;
-    b.b5.style.backgroundColor = yellow;
-    clear();
-    won();
-}
-}
-function B3(){
-    if(b.b3.innerText == ""){
-    if(number%2 === 0){
-    b.b3.innerHTML = 'X';
-    }else if(number%2 === 1){
-    b.b3.innerHTML = 'O';
-    }
-    number ++;
-    b.b3.style.textAlign = 'center';
-    b.b3.style.fontSize = "100px";
-}
-else{
-    alert("This possision is already filled");
-}
-if(b.b3.innerText === b.b5.innerText && b.b5.innerText===b.b7.innerText && b.b7.innerText === b.b3.innerText){
-    b.b3.style.backgroundColor = yellow;
-    b.b5.style.backgroundColor = yellow;
-    b.b7tyle.backgroundColor = yellow;
-    clear();
-    won();
-}else if(b.b3.innerText === b.b2.innerText && b.b2.innerText===b.b1.innerText && b.b1.innerText === b.b3.innerText){
-    b.b3style.backgroundColor = yellow;
-    b.b2tyle.backgroundColor = yellow;
-    b.b1style.backgroundColor = yellow;
-    clear();
-    won();
-}else if(b.b3.innerText === b.b6.innerText && b.b6.innerText===b.b9.innerText && b.b9.innerText === b.b3.innerText){
-    b.b3style.backgroundColor = yellow;
-    b.b6yle.backgroundColor = yellow;
-    b.b9tyle.backgroundColor = yellow;
-    clear();
-    won();
-}
-}
-function B4(){
-    if(b.b4.innerText == ""){
-    if(number%2 === 0){
-    b.b4.innerHTML = 'X';
-    }else if(number%2 === 1){
-    b.b4.innerHTML = 'O';
-    }
-    number ++;
-    b.b4.style.textAlign = 'center';
-    b.b4.style.fontSize = "100px";
-}else{
-    alert("This possision is already filled");
-}if(b.b4.innerText === b.b1.innerText && b.b1.innerText===b.b7.innerText && b.b7.innerText === b.b4.innerText){
-    b.b4tyle.backgroundColor = yellow;
-    b.b1yle.backgroundColor = yellow;
-    b.b7tyle.backgroundColor = yellow;
-    clear();
-    won();
-}else if(b.b4.innerText === b.b5.innerText && b.b5.innerText===b.b6.innerText && b.b6.innerText === b.b4.innerText){
-    b.b4tyle.backgroundColor = yellow;
-    b.b5yle.backgroundColor = yellow;
-    b.b6tyle.backgroundColor = yellow;
-    clear();
-    won();
-}
-}
-function B5(){
-    if(b.b5.innerText == ""){
-    if(number%2 === 0){
-    b.b5.innerHTML = 'X';
-    }else if(number%2 === 1){
-    b.b5.innerHTML = 'O';
-    }
-    number ++;
-    b.b5.style.textAlign = 'center';
-    b.b5.style.fontSize = "100px";
-}else{
-    alert("This possision is already filled");
-}if(b.b5.innerText === b.b1.innerText && b.b1.innerText===b.b9.innerText && b.b9.innerText === b.b5.innerText){
-    clear();
-    won();
-}else if(b.b5.innerText === b.b4.innerText && b.b4.innerText===b.b6.innerText && b.b6.innerText === b.b5.innerText){
-    b.b5tyle.backgroundColor = yellow;
-    b.b4yle.backgroundColor = yellow;
-    b.b6tyle.backgroundColor = yellow;
-    clear();
-    won();
-}else if(b.b5.innerText === b.b3.innerText && b.b3.innerText===b.b7.innerText && b.b7.innerText === b.b5.innerText){
-    b.b5tyle.backgroundColor = yellow;
-    b.b3yle.backgroundColor = yellow;
-    b.b7tyle.backgroundColor = yellow;
-    clear();
-    won();
-}
-}
-function B6(){
-    if(b.b6.innerText == ""){
-    if(number%2 === 0){
-    b.b6.innerHTML = 'X';
-    }else if(number%2 === 1){
-    b.b6.innerHTML = 'O';
-    }
-    number ++;
-    b.b6.style.textAlign = 'center';
-    b.b6.style.fontSize = "100px";
-}else{
-    alert("This possision is already filled");
-}if(b.b6.innerText === b.b3.innerText && b.b3.innerText===b.b9.innerText && b.b9.innerText === b.b6.innerText){
-    b.b6tyle.backgroundColor = yellow;
-    b.b3yle.backgroundColor = yellow;
-    b.b6tyle.backgroundColor = yellow;
-    clear();
-    won();
-}else if(b.b6.innerText === b.b5.innerText && b.b5.innerText===b.b4.innerText && b.b4.innerText === b.b6.innerText){
-    b.b6tyle.backgroundColor = yellow;
-    b.b5yle.backgroundColor = yellow;
-    b.b4tyle.backgroundColor = yellow;
-    clear();
-    won();
-}
-}
-function B7(){
-    if(b.b7.innerText == ""){
-    if(number%2 === 0){
-    b.b7.innerHTML = 'X';
-    }else if(number%2 === 1){
-    b.b7.innerHTML = 'O';
-    }
-    number ++;
-    b.b7.style.textAlign = 'center';
-    b.b7.style.fontSize = "100px";
-}else{
-    alert("This possision is already filled");
-}
-if(b.b7.innerText ===b.b4.innerText && b.b4.innerText===b.b1.innerText && b.b1.innerText === b.b7.innerText){
-    b.b7tyle.backgroundColor = yellow;
-    b.b4yle.backgroundColor = yellow;
-    b.b1style.backgroundColor = yellow;
-    clear();
-    won();
-}else if(b.b7.innerText === b.b5.innerText && b.b5.innerText===b.b3.innerText && b.b3.innerText === b.b7.innerText){
-    clear();
-    won();
-}else if(b.b7.innerText === b.b8.innerText && b.b8.innerText===b.b9.innerText && b.b9.innerText === b.b7.innerText){
-    b.b7tyle.backgroundColor = yellow;
-    b.b8yle.backgroundColor = yellow;
-    b.b9tyle.backgroundColor = yellow;
-    clear();
-    won();
-}
-}
-function B8(){
-    if(b.b8.innerText == ""){
-    if(number%2 === 0){
-    b.b8.innerHTML = 'X';
-    }else if(number%2 === 1){
-    b.b8.innerHTML = 'O';
-    }
-    number ++;
-    b.b8.style.textAlign = 'center';
-    b.b8.style.fontSize = "100px";
-}else{
-    alert("This possision is already filled");
-}
-if(b.b8.innerText === b.b9.innerText && b.b9.innerText===b.b7.innerText && b.b7.innerText === b.b8.innerText){
-    b.b8tyle.backgroundColor = yellow;
-    b.b9yle.backgroundColor = yellow;
-    b.b7tyle.backgroundColor = yellow;
-    clear();
-    won();
-}else if(b.b8.innerText === b.b5.innerText && b.b5.innerText===b.b2.innerText && b.b2.innerText === b.b8.innerText){
-    b.b8tyle.backgroundColor = yellow;
-    b.b5le.backgroundColor = yellow;
-    b.b2yle.backgroundColor = yellow;
-    clear();
-    won();
-}
-}
-function B9(){
-    if(b.b9.innerText == ""){
-    if(number%2 === 0){
-    b.b9.innerHTML = 'X';
-    }else if(number%2 === 1){
-    b.b9.innerHTML = 'O';
-    }
-number ++;
-    b.b9.style.textAlign = 'center';
-    b.b9.style.fontSize = "100px";
-}else{
-    alert("This possision is already filled");
-}if(b.b9.innerText === b.b5.innerText && b.b5.innerText===b.b1.innerText && b.b1.innerText === b.b9.innerText){
-    b.b9yle.backgroundColor = yellow;
-    b.b5le.backgroundColor = yellow;
-    b.b1yle.backgroundColor = yellow;
-    clear();
-    won();
-}else if(b.b9.innerText === b.b8.innerText && b.b8.innerText===b.b7.innerText && b.b7.innerText === b.b9.innerText){
-    b.b9yle.backgroundColor = yellow;
-    b.b8le.backgroundColor = yellow;
-    b.b7tyle.backgroundColor = yellow;
-    clear();
-    won();
-}else if(b.b9.innerText === b.b6.innerText && b.b6.innerText===b.b3.innerText && b.b3.innerText === b.b9.innerText){
-    b.b9yle.backgroundColor = yellow;
-    b.b6le.backgroundColor = yellow;
-    b.b3yle.backgroundColor = yellow;
-    clear();
-    won();
-}
-}
-b.b1.addEventListener("click", B1);
-b.b2.addEventListener("click", B2);
-b.b3.addEventListener("click", B3);
-b.b4.addEventListener("click", B4);
-b.b5.addEventListener("click", B5);
-b.b6.addEventListener("click", B6);
-b.b7.addEventListener("click", B7);
-b.b8.addEventListener("click", B8);
-b.b9.addEventListener("click", B9);
-}
+        <script> 
+        let sub = document.getElementById('submit');
+        let vis = document.getElementById('game');
+        let form = document.getElementById('form');
+        let reset = document.getElementById('reset');
+        let helptext = document.getElementById('help');
+        let helpButton = document.getElementById('helpButton');
+        helpButton.addEventListener('click' , visiblehelp);
+        helptext.style.visibility = "hidden";
+        reset.style.visibility = "hidden";
+        vis.style.visibility = "hidden";
+        sub.addEventListener("click" , games);
+        function visiblehelp(){
+            helptext.style.visibility = "visible";
+        }
+        function games(){
 
-        </script>
+            form.style.visibility = "hidden";
+        let gm = document.getElementById('game');
+        gm.style.visibility = 'visible';
+        let b = {
+        b1 : document.getElementById('1'),
+        b2 : document.getElementById('2'),
+        b3 : document.getElementById('3'),
+        b4 : document.getElementById('4'),
+        b5 : document.getElementById('5'),
+        b6 : document.getElementById('6'),
+        b7 : document.getElementById('7'),
+        b8 : document.getElementById('8'),
+        b9 : document.getElementById('9'),
+        }
+        let number = 1;
+        //to clear the game background
+        function clear(){
+            let clear1 = document.getElementById('game');
+            clear1.style.visibility = "hidden";
+        }
+        function won(){
+            if(number % 2 == 0){
+                let name1 = document.getElementById('name1').value;
+            let won1 = document.getElementById('won');
+            won1.innerText =name1+" won";
+            reset.style.visibility = 'visible';
+            helptext.style.visibility = "hidden";
+            }else if(number%2==1){
+
+                let name2 = document.getElementById('name2').value;
+            let won1 = document.getElementById('won');
+            won1.innerText = name2+" won";
+            reset.style.visibility = 'visible';
+            helptext.style.visibility = "hidden";
+            }
+        }
+        function B1(){
+            if(b.b1.innerText == ""){
+            if(number%2 === 0){
+                b.b1.innerHTML = 'X';
+            }else if(number%2 === 1){
+                b.b1.innerHTML = 'O';
+            }
+            number ++;
+            b.b1.style.textAlign = 'center';
+            b.b1.style.fontSize = "100px";
+            }
+            else{
+                alert("That possision is already filled");
+            } 
+            if(b.b1.innerText === b.b2.innerText && b.b2.innerText===b.b3.innerText && b.b3.innerText === b.b1.innerText){
+                clear();
+                won();
+            }else if(b.b1.innerText === b.b5.innerText && b.b5.innerText===b.b9.innerText && b.b9.innerText === b.b1.innerText){
+                clear();
+                won();
+            }else if(b.b1.innerText === b.b4.innerText && b.b4.innerText===b.b7.innerText && b.b7.innerText === b.b1.innerText){
+                clear();
+                won();
+            }
+        }
+        function B2(){
+            if(b.b2.innerText == ""){
+            if(number%2 === 0){
+                b.b2.innerHTML = 'X';
+            }else if(number%2 === 1){
+                b.b2.innerHTML = 'O';
+            }
+            number ++;
+            b.b2.style.textAlign = 'center';
+            b.b2.style.fontSize = "100px";
+        }
+        else {
+            alert("This possision is already filled");
+        }
+        if(b.b2.innerText === b.b5.innerText && b.b5.innerText===b.b8.innerText && b.b8.innerText === b.b2.innerText){
+            clear();
+            won();
+        }
+        }
+        function B3(){
+            if(b.b3.innerText == ""){
+            if(number%2 === 0){
+            b.b3.innerHTML = 'X';
+            }else if(number%2 === 1){
+            b.b3.innerHTML = 'O';
+            }
+            number ++;
+            b.b3.style.textAlign = 'center';
+            b.b3.style.fontSize = "100px";
+        }
+        else{
+            alert("This possision is already filled");
+        }
+        if(b.b3.innerText === b.b5.innerText && b.b5.innerText===b.b7.innerText && b.b7.innerText === b.b3.innerText){
+            clear();
+            won();
+        }else if(b.b3.innerText === b.b2.innerText && b.b2.innerText===b.b1.innerText && b.b1.innerText === b.b3.innerText){
+            clear();
+            won();
+        }else if(b.b3.innerText === b.b6.innerText && b.b6.innerText===b.b9.innerText && b.b9.innerText === b.b3.innerText){
+            clear();
+            won();
+        }
+        }
+        function B4(){
+            if(b.b4.innerText == ""){
+            if(number%2 === 0){
+            b.b4.innerHTML = 'X';
+            }else if(number%2 === 1){
+            b.b4.innerHTML = 'O';
+            }
+            number ++;
+            b.b4.style.textAlign = 'center';
+            b.b4.style.fontSize = "100px";
+        }else{
+            alert("This possision is already filled");
+        }if(b.b4.innerText === b.b1.innerText && b.b1.innerText===b.b7.innerText && b.b7.innerText === b.b4.innerText){
+            clear();
+            won();
+        }else if(b.b4.innerText === b.b5.innerText && b.b5.innerText===b.b6.innerText && b.b6.innerText === b.b4.innerText){
+            clear();
+            won();
+        }
+        }
+        function B5(){
+            if(b.b5.innerText == ""){
+            if(number%2 === 0){
+            b.b5.innerHTML = 'X';
+            }else if(number%2 === 1){
+            b.b5.innerHTML = 'O';
+            }
+            number ++;
+            b.b5.style.textAlign = 'center';
+            b.b5.style.fontSize = "100px";
+        }else{
+            alert("This possision is already filled");
+        }if(b.b5.innerText === b.b1.innerText && b.b1.innerText===b.b9.innerText && b.b9.innerText === b.b5.innerText){
+            clear();
+            won();
+        }else if(b.b5.innerText === b.b4.innerText && b.b4.innerText===b.b6.innerText && b.b6.innerText === b.b5.innerText){
+            clear();
+            won();
+        }else if(b.b5.innerText === b.b3.innerText && b.b3.innerText===b.b7.innerText && b.b7.innerText === b.b5.innerText){
+            clear();
+            won();
+        }
+        }
+        function B6(){
+            if(b.b6.innerText == ""){
+            if(number%2 === 0){
+            b.b6.innerHTML = 'X';
+            }else if(number%2 === 1){
+            b.b6.innerHTML = 'O';
+            }
+            number ++;
+            b.b6.style.textAlign = 'center';
+            b.b6.style.fontSize = "100px";
+        }else{
+            alert("This possision is already filled");
+        }if(b.b6.innerText === b.b3.innerText && b.b3.innerText===b.b9.innerText && b.b9.innerText === b.b6.innerText){
+            clear();
+            won();
+        }else if(b.b6.innerText === b.b5.innerText && b.b5.innerText===b.b4.innerText && b.b4.innerText === b.b6.innerText){
+            clear();
+            won();
+        }
+        }
+        function B7(){
+            if(b.b7.innerText == ""){
+            if(number%2 === 0){
+            b.b7.innerHTML = 'X';
+            }else if(number%2 === 1){
+            b.b7.innerHTML = 'O';
+            }
+            number ++;
+            b.b7.style.textAlign = 'center';
+            b.b7.style.fontSize = "100px";
+        }else{
+            alert("This possision is already filled");
+        }
+        if(b.b7.innerText ===b.b4.innerText && b.b4.innerText===b.b1.innerText && b.b1.innerText === b.b7.innerText){
+            clear();
+            won();
+        }else if(b.b7.innerText === b.b5.innerText && b.b5.innerText===b.b3.innerText && b.b3.innerText === b.b7.innerText){
+            clear();
+            won();
+        }else if(b.b7.innerText === b.b8.innerText && b.b8.innerText===b.b9.innerText && b.b9.innerText === b.b7.innerText){
+            clear();
+            won();
+        }
+        }
+        function B8(){
+            if(b.b8.innerText == ""){
+            if(number%2 === 0){
+            b.b8.innerHTML = 'X';
+            }else if(number%2 === 1){
+            b.b8.innerHTML = 'O';
+            }
+            number ++;
+            b.b8.style.textAlign = 'center';
+            b.b8.style.fontSize = "100px";
+        }else{
+            alert("This possision is already filled");
+        }
+        if(b.b8.innerText === b.b9.innerText && b.b9.innerText===b.b7.innerText && b.b7.innerText === b.b8.innerText){
+            clear();
+            won();
+        }else if(b.b8.innerText === b.b5.innerText && b.b5.innerText===b.b2.innerText && b.b2.innerText === b.b8.innerText){
+            clear();
+            won();
+        }
+        }
+        function B9(){
+            if(b.b9.innerText == ""){
+            if(number%2 === 0){
+            b.b9.innerHTML = 'X';
+            }else if(number%2 === 1){
+            b.b9.innerHTML = 'O';
+            }
+        number ++;
+            b.b9.style.textAlign = 'center';
+            b.b9.style.fontSize = "100px";
+        }else{
+            alert("This possision is already filled");
+        }if(b.b9.innerText === b.b5.innerText && b.b5.innerText===b.b1.innerText && b.b1.innerText === b.b9.innerText){
+            clear();
+            won();
+        }else if(b.b9.innerText === b.b8.innerText && b.b8.innerText===b.b7.innerText && b.b7.innerText === b.b9.innerText){
+            clear();
+            won();
+        }else if(b.b9.innerText === b.b6.innerText && b.b6.innerText===b.b3.innerText && b.b3.innerText === b.b9.innerText){
+            clear();
+            won();
+        }
+        }
+        b.b1.addEventListener("click", B1);
+        b.b2.addEventListener("click", B2);
+        b.b3.addEventListener("click", B3);
+        b.b4.addEventListener("click", B4);
+        b.b5.addEventListener("click", B5);
+        b.b6.addEventListener("click", B6);
+        b.b7.addEventListener("click", B7);
+        b.b8.addEventListener("click", B8);
+        b.b9.addEventListener("click", B9);
+        }
+</script>
     </body>
 </html>
